@@ -119,19 +119,19 @@ grep --binary-files=text --context=10 '*' /dev/sdb > /root/root2.txt
 
 This was just a snippet of the END of the result: 
 
-�
-   o��!:2�Y:2�Y:2�Y
-�* �!9�����2�Y�2�Y�2�Y
-�+ �!9��;9�Y�3
-                   8PP
-(["�	  �1�Y��S��1�Y
-                         �<Byc[��B)�>r &�<�yZ�.Gu���m^��>
-                                                               �1�Y
-�|}*,.�����+-���3d3e483143ff12ec505d026fa13e020b
-Damnit! Sorry man I accidentally deleted your files off the USB stick.
-Do you know if there is any way to get them back?
-
--James
+>�
+>   o��!:2�Y:2�Y:2�Y
+>�* �!9�����2�Y�2�Y�2�Y
+>�+ �!9��;9�Y�3
+>                   8PP
+>(["�	  �1�Y��S��1�Y
+>                         �<Byc[��B)�>r &�<�yZ�.Gu���m^��>
+>                                                               �1�Y
+>�|}*,.�����+-���3d3e483143ff12ec505d026fa13e020b
+>Damnit! Sorry man I accidentally deleted your files off the USB stick.
+>Do you know if there is any way to get them back?
+>
+>-James
 
 So you can see, the file that was saved to the flash drive, and just before that in memory, you can see a key. I wasn't sure if that was the key we were looking for, but I tried it and it was!
 It felt great to root this box, and to find this file. It always feels great to learn something new.
@@ -145,7 +145,7 @@ Hey, thanks for reading my write-up. It really means a lot. I'm really passionat
 
 Next day Edit. After all is said and done, a friend informed me that you can extract strings on the drive using the dd command. Specifically:
 
-dd if=/dev/sdb | strings
+`dd if=/dev/sdb | strings`
 
 Wow, certainly a much better result than my previous command. 
 Here was a snippet of the result:
