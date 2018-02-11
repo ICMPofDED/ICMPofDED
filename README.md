@@ -99,7 +99,6 @@ Ok, that should be simple enough...
 Alright, so I did an "lsblk" to determine where the flash drive was mounted, and we found it was in the /media/usbstick directory.
 ![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img5.jpg?raw=true)
 
-
 -sigh- 
 
 Alright, to be honest. I am not sure how to recover files. So I had to dig a bunch. I tried to install something through apt-get which was locked down. I'm thinking I'm going to have to recover it with grep if at all possible. 
