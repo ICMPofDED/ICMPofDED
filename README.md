@@ -32,13 +32,13 @@ Here's the result of the NMAP Default script:
 
 Ok, so quite a bit less information than normal, but we have a few things to check out right off the bat. Says there is a website with no title. DNS server and SSH. 
 Well, I learned about another script I want to try as well before we continue. The Nmap Vulners script. However, looks like the host is down now. Perhaps someone is issuing a reset.
-![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img1.jpg)
+![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img1.jpg?raw=true)
 
 
 
 Ok, it didn't want to come back up so I was the one who had to issue a reset. 
 Anyway...back to business. 
-![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/biz1.jpg)
+![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/biz1.jpg?raw=true)
 
 
 > └──╼ $nmap -sV --script vulners 10.10.10.48
@@ -70,18 +70,18 @@ Ok, didn't see anything of note in the CVEs, the one for lighttpd just allows yo
 
 So I tried going to the IP in the browser, and it gave me page could not be displayed. So maybe it's in another directory? I added /admin and voila! I've got an admin portal for "pi-hole". 
 Doing some digging on pi-hole led me to some vulnerabilities for the dnsmasq version they're using. So...Don't expect your tools to be 100% accurate all the time. 
-![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/tmyk.jpg)
+![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/tmyk.jpg?raw=true)
 
 
 Looks like a few of the CVEs are of the RCE variety (yay!)
-![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img2.jpg)
+![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img2.jpg?raw=true)
 
 
 All of these were found on the Google Security Blog here https://security.googleblog.com/2017/10/behind-masq-yet-more-dns-and-dhcp.html
 
 Ok. I took a moment to think about this, and how I was going to attempt some of these POCs, however I ended up thinking more about Mirai and how it spread because of default credentials. Now that I know this is a raspberry pi, I found someone's post on reddit about how he wasn't sure how to SSH in. Someone mentioned how to reset it, and then mentioned the default login was login: pi password: raspberry 
 Excellent, let's give that a shot. 
-![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img3.jpg)
+![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img3.jpg?raw=true)
 
 
 and we're in. Let's do some digging.
@@ -91,13 +91,13 @@ Alright! we got our user.txt on the desktop!
 Ok, I'm going to pretend I didn't just copy a linux priv. escalation script over to the machine before trying "sudo su" without a password...
 
 But they wouldn't make it that easy for us, would they? 
-![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img4.jpg)
+![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img4.jpg?raw=true)
 
 
 Apparently they did, but look we have another hoop to jump through already?
 Ok, that should be simple enough...
 Alright, so I did an "lsblk" to determine where the flash drive was mounted, and we found it was in the /media/usbstick directory.
-![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img5.jpg)
+![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img5.jpg?raw=true)
 
 
 -sigh- 
@@ -149,7 +149,7 @@ dd if=/dev/sdb | strings
 
 Wow, certainly a much better result than my previous command. 
 Here was a snippet of the result:
-![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img6.jpg)
+![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img6.jpg?raw=true)
 
 
 Look at that, plain as day. We are basically extracting all of the strings of text from the entire drive. I think the only thing that makes this command feasible though, is the fact that it was a USB drive and not a system partition. Very cool, even after rooting the box, Im still learning awesome Sh..tuff. Thanks again for reading!
