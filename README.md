@@ -51,16 +51,16 @@ Anyway...back to business.
 > 22/tcp open  ssh     OpenSSH 6.7p1 Debian 5+deb8u3 (protocol 2.0)
 > | vulners: 
 > |   cpe:/a:openbsd:openssh:6.7p1: 
-> | 	CVE-2016-8858		7.8		https://vulners.com/cve/CVE-2016-8858
-> | 	CVE-2017-15906		5.0		https://vulners.com/cve/CVE-2017-15906
-> | 	CVE-2016-0778		4.6		https://vulners.com/cve/CVE-2016-0778
-> |_	CVE-2016-0777		4.0		https://vulners.com/cve/CVE-2016-0777
+> | 	CVE-2016-8858		7.8		[https://vulners.com/cve/CVE-2016-8858](https://vulners.com/cve/CVE-2016-8858).
+> | 	CVE-2017-15906		5.0		[https://vulners.com/cve/CVE-2017-15906](https://vulners.com/cve/CVE-2017-15906).
+> | 	CVE-2016-0778		4.6		[https://vulners.com/cve/CVE-2016-0778](https://vulners.com/cve/CVE-2016-0778).
+> |_	CVE-2016-0777		4.0		[https://vulners.com/cve/CVE-2016-0777](https://vulners.com/cve/CVE-2016-0777).
 > 53/tcp open  domain  dnsmasq 2.76
 > 80/tcp open  http    lighttpd 1.4.35
 > |_http-server-header: lighttpd/1.4.35
 > | vulners: 
 > |   cpe:/a:lighttpd:lighttpd:1.4.35: 
-> |_	CVE-2015-3200		5.0		https://vulners.com/cve/CVE-2015-3200
+> |_	CVE-2015-3200		5.0		[https://vulners.com/cve/CVE-2015-3200](https://vulners.com/cve/CVE-2015-3200).
 > Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 > Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
@@ -77,7 +77,7 @@ Looks like a few of the CVEs are of the RCE variety (yay!)
 ![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/img2.jpg?raw=true)
 
 
-All of these were found on the Google Security Blog here https://security.googleblog.com/2017/10/behind-masq-yet-more-dns-and-dhcp.html
+All of these were found on the Google Security Blog [https://security.googleblog.com/2017/10/behind-masq-yet-more-dns-and-dhcp.html](here!)
 
 Ok. I took a moment to think about this, and how I was going to attempt some of these POCs, however I ended up thinking more about Mirai and how it spread because of default credentials. Now that I know this is a raspberry pi, I found someone's post on reddit about how he wasn't sure how to SSH in. Someone mentioned how to reset it, and then mentioned the default login was login: pi password: raspberry 
 Excellent, let's give that a shot. 
@@ -106,7 +106,7 @@ Alright, to be honest. I am not sure how to recover files. So I had to dig a bun
 
 After some digging, I was able to find this post: 
 
-http://blog.nullspace.io/recovering-deleted-files-using-only-grep.html
+[http://blog.nullspace.io/recovering-deleted-files-using-only-grep.html](http://blog.nullspace.io/recovering-deleted-files-using-only-grep.html)
 
 I did modify the command a bit to my liking. 
 
@@ -115,7 +115,7 @@ grep --binary-files=text --context=x 'stringfromyourfile' \ /dev/whateverPartiti
 
 I don't know a string from the file, because that's what I'm trying to find. So here were my modifications...
 
-grep --binary-files=text --context=10 '*' /dev/sdb > /root/root2.txt
+`grep --binary-files=text --context=10 '*' /dev/sdb > /root/root2.txt`
 
 This was just a snippet of the END of the result: 
 
