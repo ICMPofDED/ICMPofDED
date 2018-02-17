@@ -1,8 +1,8 @@
 
 
-[Mirai write-up](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/Mirai.md) 
+[Mirai write-up](Mirai) 
 <br>
-[Shocker write-up](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/Shocker.md)
+[Shocker write-up](Shocker)
 
 
 This landing page is temporary...
