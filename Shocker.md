@@ -60,9 +60,11 @@ Hmm ok. Well, we've got web and ssh. Let's hit the website and see what's up!
 ![](https://github.com/ICMPofDED/ICMPofDED.github.io/blob/master/images/shocker1.jpg?raw=true)
 Nothing too interesting there..source?
 
-`> <!DOCTYPE html><html><body>
+```
+> <!DOCTYPE html><html><body>
 ><h2>Don't Bug Me!</h2><img src="bug.jpg" alt="bug" style="width:450px;height:350px;">
-></body></html> `
+></body></html> 
+```
 
 Ok yeah, still not much to go on here. Let's try to find any other pages on the site. 
 
@@ -73,9 +75,7 @@ Not really much to go on here.
 
 Thinking about the name of the box, I'm guessing shocker had to do with the shellshock vulnerability. However, I am not seeing anything in the cgi-bin folder that is exploitable. I even downloaded a special cgi-bin wordlist. What am I missing?
 Ok, I figured it out. Apparently I was looking for only bin, py and didn't do a search for .sh. So I found user.sh in the cgi-bin folder and now we have our way in.
-So in terms of the actual exploit, I found this neat python script!
-
-![https://gist.github.com/matjohn2/bc9689c60d4c9c5a2538/](https://gist.github.com/matjohn2/bc9689c60d4c9c5a2538/)
+So in terms of the actual exploit, I found [this neat python script](https://gist.github.com/matjohn2/bc9689c60d4c9c5a2538/) from user [matjohn2 on github](https://github.com/matjohn2/) Thanks, matjohn2!
 
 Super simple, it has the reverse shell built in! So I launch that and Aw yes, we got that userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!
 
